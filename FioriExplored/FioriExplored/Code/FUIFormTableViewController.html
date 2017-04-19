@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          switch self.formCellTypeArray[indexPath.row] {
+          case "FUITitleFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUITitleFormCell.reuseIdentifier, for: indexPath) as! FUITitleFormCell
+              cell.value = "FUITitleFormCell: Text"
+
+              cell.isEditable = true
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue) //implement the new value logic here
+              }
+              return cell
+          case "FUISimplePropertyFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUISimplePropertyFormCell.reuseIdentifier, for: indexPath) as! FUISimplePropertyFormCell
+
+              cell.keyName = "FUISimplePropertyFormCell: Key"
+              cell.value = "Value Label text"
+
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)//implement the new value logic here
+              }
+              return cell
+          case "FUINoteFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUINoteFormCell.reuseIdentifier, for: indexPath) as! FUINoteFormCell
+
+              // If a value already exists, set it to the `value` property
+              cell.value = "FUINoteFormCell note value"
+
+              // Specify an optional placeholder text
+              cell.placeholderText = "Placeholder text only shown when empty"
+
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)//implement the new value logic here
+              }
+
+              return cell
+          case "FUISwitchFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUISwitchFormCell.reuseIdentifier, for: indexPath) as! FUISwitchFormCell
+              cell.keyName = "FUISwitchFormCell:key"
+              cell.value = true
+
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)//implement the new value logic here
+              }
+
+              return cell
+          case "FUISegmentedControlFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUISegmentedControlFormCell.reuseIdentifier, for: indexPath) as! FUISegmentedControlFormCell
+              // Optionally, create an array of value option to localized string mappings
+              let buttonTitles: [[String: String]] = [["LO": "Low"], ["MED": "Medium"], ["HI": "High"]]
+              cell.valueOptions = buttonTitles.flatMap { $0.map { $0.value } }
+              cell.keyName = "FUISegmentedControlFormCell: key"
+              cell.value = 0  // String value in the valid options set: [LO, MED, HI]
+
+
+
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(buttonTitles[newValue].first!.key)  // lookup valid String value, from the buttonTitles array
+              }
+              return cell
+          case "FUIFilterFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUIFilterFormCell.reuseIdentifier, for: indexPath) as! FUIFilterFormCell
+              // optionally, create an array of value option to localized string mappings
+              let buttonTitles: [[String: String]] = [["radius": "Distance"], ["price": "Price"], ["rating": "Ratings"], ["avail": "Availability"]]
+
+              cell.valueOptions = buttonTitles.flatMap { $0.map { $0.value }}
+              cell.keyName = "FUIFilterFormCell:Sort By"
+              cell.value = [1]
+              cell.allowsMultipleSelection = true
+              cell.allowsEmptySelection = false
+
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)//implement filter logic here
+              }
+
+              return cell
+          case "FUIDatePickerFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUIDatePickerFormCell.reuseIdentifier, for: indexPath) as! FUIDatePickerFormCell
+              cell.keyName = "FUIDatePickerFormCell: key"
+              let dateFormatter = DateFormatter()
+              dateFormatter.dateFormat = "dd-MM-yyyy"
+              cell.dateFormatter = dateFormatter
+              cell.datePickerMode = .date
+              cell.value = Date()   //Current Date
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)
+              }
+
+              return cell
+          case "FUIDurationPickerFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUIDurationPickerFormCell.reuseIdentifier, for: indexPath) as! FUIDurationPickerFormCell
+              cell.keyName = "FUIDurationPickerFormCell: Key"
+              cell.value = 10000  // in seconds
+
+              // MARK:  implement an onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)
+              }
+
+              return cell
+          case "FUIListPickerFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUIListPickerFormCell.reuseIdentifier, for: indexPath)
+              guard let listPickerCell = cell as? FUIListPickerFormCell else {
+                  return cell
+              }
+
+              let selectedValues = [0, 2]
+              let valueOptions = ["optionRepair", "optionConstruction", "optionEngineering", "optionVendor"]
+
+              listPickerCell.keyName = "FUIListPickerFormCell: key"
+              listPickerCell.value = selectedValues
+              listPickerCell.isEditable = true
+              listPickerCell.allowsMultipleSelection = true
+              listPickerCell.allowsEmptySelection = true
+              listPickerCell.valueTextField.text = descriptionForSelectedStrings(valueOptions, at: selectedValues)
+              listPickerCell.isUndoEnabled = true
+              listPickerCell.valueOptions = valueOptions
+              listPickerCell.onChangeHandler = {newValues in
+                  print(newValues)
+              }
+
+              listPickerCell.listPicker.prompt = "Prompt Text"
+              listPickerCell.listPicker.isSearchEnabled = true
+
+              listPickerCell.listPicker.isBarcodeScannerEnabled = true
+              listPickerCell.listPicker.barcodeScanMode = .all
+              listPickerCell.listPicker.barcodeScanResultTransformer = { (scanResultString) -> String in
+                  // if necessary the scan result string can be adjusted here
+                  return scanResultString
+              }
+
+              return listPickerCell
+          case "FUIAttachmentsFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUIAttachmentsFormCell.reuseIdentifier, for: indexPath)
+              guard let attachmentCell = cell as? FUIAttachmentsFormCell else {
+                  return cell
+              }
+              attachmentCell.attachmentsController.delegate = self
+              attachmentCell.attachmentsController.dataSource = self
+              attachmentCell.attachmentsController.reloadData()
+
+              let addPhotoAction = FUIAddPhotoAttachmentAction()
+              addPhotoAction.delegate = self
+              attachmentCell.attachmentsController.addAttachmentAction(addPhotoAction)
+
+              let takePhotoAction = FUITakePhotoAttachmentAction()
+              takePhotoAction.delegate = self
+              attachmentCell.attachmentsController.addAttachmentAction(takePhotoAction)
+
+              return attachmentCell
+          case "FUIButtonFormCell":
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUIButtonFormCell.reuseIdentifier, for: indexPath)
+              guard let buttonFormCell = cell as? FUIButtonFormCell else {
+                  return cell
+              }
+              buttonFormCell.alignment = .center
+              buttonFormCell.button.setTitle("FUIButtonFormCell", for: .normal)
+
+              return buttonFormCell
+          default:
+              // Return the cell to be used at the IndexPath specified
+              let cell = tableView.dequeueReusableCell(withIdentifier: FUITitleFormCell.reuseIdentifier, for: indexPath) as! FUITitleFormCell
+              cell.value = "FUITitleFormCell: Work Request"
+
+              cell.isEditable = true
+              // MARK:  implement onChangeHandler
+              cell.onChangeHandler = { newValue in
+                  print(newValue)//implement the new value logic here
+              }
+              return cell
+          }
+
+      }
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>

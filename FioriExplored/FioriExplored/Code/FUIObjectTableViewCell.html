@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+      let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FUIObjectTableViewCell
+      cell.detailImage = UIImage.init(named: "HT-1000.jpg")
+      cell.headlineText = isFiltered ? filteredList[indexPath.row] : optionsList[indexPath.row]
+      cell.subheadlineText = "Sub HeadLine Text"
+      cell.footnoteText = "Here is some footer text about Edward"
+      cell.statusImageView.image = UIImage.init(named: "HT-1001.jpg")
+      cell.substatusText = "Active"
+      cell.descriptionText = "This text is only visible when the cell is in regular horizontal size class."
+      cell.iconImages = [UIImage.init(named: "cloud.png")!, UIImage.init(named: "cloud.png")!, UIImage.init(named: "SAPLogo.png")!]
+      cell.accessoryType = .disclosureIndicator
+      cell.preserveIconStackSpacing = true
+      return cell   
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>

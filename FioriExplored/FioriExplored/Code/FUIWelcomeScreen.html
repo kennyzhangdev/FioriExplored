@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+    let vc = FUIWelcomeScreen.createInstanceFromStoryboard()
+    vc.state = .isConfigured  // shows version2 of the launch screen
+    vc.welcomeLabel.text = "Welcome Label"
+    vc.welcomeDetailLabel.text = "Welcome Detail: Thank you for downloading SAP Project Companion for Managers."
+    vc.instructionTextView.text = "This is instructionTextView text, don't worry, you can comment this code to see the default text"
+    vc.signInButton.setTitle("Back", for: UIControlState.normal)
+    vc.signInButton.addTarget(self, action: #selector(navBack), for: UIControlEvents.touchUpInside)
+    self.navigationController?.pushViewController(vc, animated: true)
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>

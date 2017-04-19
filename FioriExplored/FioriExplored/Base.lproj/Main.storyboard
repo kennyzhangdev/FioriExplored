@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YkW-J0-EE8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root Table View Controller-->
+        <scene sceneID="icA-y1-gIv">
+            <objects>
+                <tableViewController id="pC5-1Q-Vqk" customClass="RootTableViewController" customModule="FioriExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yta-Eu-PkT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" textLabel="z4D-yq-z6o" style="IBUITableViewCellStyleDefault" id="P5D-ei-vOY">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P5D-ei-vOY" id="9UC-qM-OEI">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z4D-yq-z6o">
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pC5-1Q-Vqk" id="GJm-MD-UGf"/>
+                            <outlet property="delegate" destination="pC5-1Q-Vqk" id="LJa-gE-xaq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zSL-VQ-QzD"/>
+                    <connections>
+                        <segue destination="uKc-U8-LCn" kind="show" identifier="toSample" id="y7L-3V-YfQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ky-AF-Vua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="687"/>
+        </scene>
+        <!--Sample View Controller-->
+        <scene sceneID="HDC-Jp-vgH">
+            <objects>
+                <viewController id="uKc-U8-LCn" customClass="SampleViewController" customModule="FioriExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bgY-wZ-7rc"/>
+                        <viewControllerLayoutGuide type="bottom" id="w7a-9e-gue"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gYe-Az-hfp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="IDa-NQ-f3R" kind="show" identifier="toSampleTableView" id="0kN-nd-5k6"/>
+                        <segue destination="9zt-mB-fW0" kind="show" identifier="toSampleCollectionView" id="C5u-ad-tVC"/>
+                        <segue destination="EA9-DV-uc1" kind="show" identifier="toSampleFormTableView" id="13Z-6a-kar"/>
+                        <segue destination="E9m-UA-noC" kind="show" identifier="showCode" id="qwD-K6-kNm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gmc-v6-Sty" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995" y="695"/>
+        </scene>
+        <!--Sample Collection View Controller-->
+        <scene sceneID="ar4-No-ILP">
+            <objects>
+                <collectionViewController id="9zt-mB-fW0" customClass="SampleCollectionViewController" customModule="FioriExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="hfa-8S-fcz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dy7-az-new">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ls2-p7-Dpk">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="9zt-mB-fW0" id="iIg-Wt-Xbe"/>
+                            <outlet property="delegate" destination="9zt-mB-fW0" id="pCb-4l-czA"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UD-pD-QKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="687"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="Ouj-1j-fDX">
+            <objects>
+                <viewController id="E9m-UA-noC" customClass="CodeViewController" customModule="FioriExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XCS-7r-Xz7"/>
+                        <viewControllerLayoutGuide type="bottom" id="eVH-Ci-VnZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j1X-Qp-hJt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TeJ-A6-e4q">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TeJ-A6-e4q" firstAttribute="height" secondItem="j1X-Qp-hJt" secondAttribute="height" id="Zcs-6b-bDC"/>
+                            <constraint firstItem="TeJ-A6-e4q" firstAttribute="centerY" secondItem="j1X-Qp-hJt" secondAttribute="centerY" id="b48-5p-hRg"/>
+                            <constraint firstItem="TeJ-A6-e4q" firstAttribute="width" secondItem="j1X-Qp-hJt" secondAttribute="width" id="pKF-ou-UlX"/>
+                            <constraint firstItem="TeJ-A6-e4q" firstAttribute="centerX" secondItem="j1X-Qp-hJt" secondAttribute="centerX" id="yd8-oW-I8Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="codeWebView" destination="TeJ-A6-e4q" id="C25-0f-BoD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DSC-SI-pK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="1717.6911544227887"/>
+        </scene>
+        <!--Sample Form Table View Controller-->
+        <scene sceneID="AAO-lQ-lrn">
+            <objects>
+                <tableViewController id="EA9-DV-uc1" customClass="SampleFormTableViewController" customModule="FioriExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1O6-Og-9UQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GTl-6w-ISB">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GTl-6w-ISB" id="wuT-fr-OuJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EA9-DV-uc1" id="bDT-kl-ow0"/>
+                            <outlet property="delegate" destination="EA9-DV-uc1" id="Iu7-aA-apN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5Q-Vw-mm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="1386"/>
+        </scene>
+        <!--Sample Table View Controller-->
+        <scene sceneID="Gnc-wM-jsO">
+            <objects>
+                <tableViewController id="IDa-NQ-f3R" customClass="SampleTableViewController" customModule="FioriExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YzB-vb-0mb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FUIObjectTableViewCell" id="b2L-lp-thg" customClass="FUIObjectTableViewCell" customModule="FioriExplored" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2L-lp-thg" id="iEC-zz-MLi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IDa-NQ-f3R" id="vnL-vH-K6a"/>
+                            <outlet property="delegate" destination="IDa-NQ-f3R" id="LM4-UE-4Hq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kds-Cg-dcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="-95"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HkS-Gd-TfH">
+            <objects>
+                <navigationController id="YkW-J0-EE8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pc2-AN-9P6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pC5-1Q-Vqk" kind="relationship" relationship="rootViewController" id="tdc-ey-AkF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FCM-h9-iri" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868" y="687"/>
+        </scene>
+    </scenes>
+</document>

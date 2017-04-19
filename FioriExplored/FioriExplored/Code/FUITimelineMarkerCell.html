@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+      let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FUITimelineMarkerCell
+      cell.titleText = isFiltered ? filteredList[indexPath.row] : optionsList[indexPath.row]
+      cell.nodeImage = FUITimelineNode.start
+      cell.eventText = "12/6/15"
+      cell.showLeadingTimeline = false
+      cell.eventImage = UIImage.init(named: "cloud.png")
+      return cell
+
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>

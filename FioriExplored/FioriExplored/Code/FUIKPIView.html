@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+      let kpiView = FUIKPIView(frame: CGRect())
+      self.view.addSubview(kpiView)
+
+
+      let unit = FUIKPIUnitItem(string: "$")
+      let metric = FUIKPIMetricItem(string: "294")
+      let unit2 = FUIKPIUnitItem(string: "USD")
+      kpiView.items = [unit, metric, unit2]
+      kpiView.captionlabel.text = "KPI View: Documents Example of Two Line Wrap"
+
+      self.view.addConstraint(NSLayoutConstraint(item: kpiView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 100))
+      self.view.addConstraint(NSLayoutConstraint(item: kpiView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 50))
+
+
+      let icon = FUIKPIIconItem(icon: UIImage.init(named: "cloud.png")!)
+      let metric2 = FUIKPIMetricItem(string: "2")
+
+
+      let kpiIconView = FUIKPIView(frame: CGRect())
+
+      kpiIconView.items = [icon, metric2, unit2]
+      kpiIconView.captionlabel.text = "KPI icon View: Documents Example of Two Line Wrap"
+
+      self.view.addSubview(kpiIconView)
+
+      self.view.addConstraint(NSLayoutConstraint(item: kpiIconView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: kpiView, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 50))
+      self.view.addConstraint(NSLayoutConstraint(item: kpiIconView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: kpiView, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0))
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>

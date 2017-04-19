@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+      override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+          switch self.collectionTypeArray[indexPath.section] {
+          case "FUIObjectCollectionViewCell":
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FUIObjectCollectionViewCell.reuseIdentifier, for: indexPath) as! FUIObjectCollectionViewCell
+
+              cell.headlineText = "Head Line Text"
+              cell.subheadlineText = "SubHead Line"
+              cell.footnoteText = "Foot Note"
+              cell.statusText = "Status"
+              cell.substatusImage = UIImage.init(named: "cloud.png")
+              cell.substatusImageView.tintColor = UIColor.preferredFioriColor(forStyle: .negative)
+              cell.detailImage = UIImage.init(named: "avatar.png")
+
+              return cell
+          case "FUISimpleCollectionViewCell":
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FUISimpleCollectionViewCell.reuseIdentifier,
+                                                            for: indexPath)
+              guard let fioriCVCell = cell as? FUISimpleCollectionViewCell else {
+                  return cell
+              }
+
+              fioriCVCell.contentImage = UIImage(named: products[indexPath.item].imageUrl)
+              fioriCVCell.titleText = products[indexPath.item].name
+              return fioriCVCell
+          case "FUISimplePropertyCollectionViewCell":
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FUISimplePropertyCollectionViewCell.reuseIdentifier, for: indexPath)
+              guard let fioriCVCell = cell as? FUISimplePropertyCollectionViewCell else {
+                  return cell
+              }
+              fioriCVCell.keyName = "Key \(indexPath.row)"
+              fioriCVCell.value = "Value \(indexPath.row)"
+              return fioriCVCell
+          default:
+
+
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FUIObjectCollectionViewCell.reuseIdentifier, for: indexPath) as! FUIObjectCollectionViewCell
+
+              cell.headlineText = "Head Line Text"
+              cell.subheadlineText = "SubHead Line"
+              cell.footnoteText = "Foot Note"
+              cell.statusText = "Status"
+              cell.substatusImage = UIImage.init(named: "cloud.png")
+              cell.substatusImageView.tintColor = UIColor.preferredFioriColor(forStyle: .negative)
+              cell.detailImage = UIImage.init(named: "avatar.png")
+
+              return cell
+          }
+      }   
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>

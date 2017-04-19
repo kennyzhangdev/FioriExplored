@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/prism.css">
+  <script src="js/prism.js"></script>
+  </head>
+  <body>
+
+<div>
+
+  <pre>
+    <code class="language-swift">
+      let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FUIContactCell
+      let activities: [FUIActivityItem] = [FUIActivityItem.phone, FUIActivityItem.message, FUIActivityItem.email]
+
+      cell.detailImage = UIImage.init(named: "avatar.png")
+      cell.headlineText = isFiltered ? filteredList[indexPath.row] : optionsList[indexPath.row]
+      cell.subheadlineText = "ContactTitle"
+      cell.descriptionText = "Contact Address, only shown when the cell is in regular horizontal size class."
+      cell.activityControl.addActivities(activities)
+      return cell        
+    </code>
+  </pre>
+  </div>
+
+  </body>
+  <style>
+
+code[class*="language-"], pre[class*="language-"]{
+  white-space: pre-line!important;
+
+}
+  </style>
+</html>
